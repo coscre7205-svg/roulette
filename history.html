@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>복불복 룰렛 - 3. 기록</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+
+  <header class="hero compact">
+    <span class="mascot" aria-hidden="true">🎡</span>
+    <h1>오늘의 <em>복불복</em> 룰렛</h1>
+    <p>이름을 넣고 돌려요. 운명의 한 명은 누구일까요?</p>
+  </header>
+
+  <nav class="tabs" aria-label="페이지 이동">
+    <a class="tab" href="index.html" data-go="players"><span class="num">1</span><span>참가자</span><small><b id="tabCount">0</b>명</small></a>
+    <a class="tab" href="roulette.html" data-go="roulette"><span class="num">2</span><span>룰렛</span><small>돌리기</small></a>
+    <a class="tab active" href="history.html" data-go="history" aria-current="page"><span class="num">3</span><span>기록</span><small><b id="tabHist">0</b>번</small></a>
+  </nav>
+
+  <div class="grid">
+    <!-- 3페이지: 기록 -->
+    <section class="card" aria-labelledby="t3">
+      <div class="card-head">
+        <div class="chip green" aria-hidden="true">📊</div>
+        <h2 id="t3">뽑기 기록</h2>
+        <p class="sub">누가 몇 번 걸렸는지 한눈에 볼 수 있어요</p>
+      </div>
+
+      <div class="hist-top">
+        <span id="histSummary">아직 기록이 없어요</span>
+        <button class="link-btn" id="histClear" type="button">기록 지우기</button>
+      </div>
+
+      <table class="hist-table">
+        <thead>
+          <tr><th scope="col">순위</th><th scope="col">이름</th><th scope="col">걸린 횟수</th><th scope="col">비율</th></tr>
+        </thead>
+        <tbody id="histBody"></tbody>
+      </table>
+
+      <p class="recent-label" id="recentLabel" hidden>최근 결과 (최신순)</p>
+      <ul class="recent" id="recent" aria-label="최근 결과"></ul>
+
+      <div class="page-actions">
+        <a class="btn btn-next" href="roulette.html">← 룰렛으로 돌아가기</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="common.js"></script>
+<script src="history.js"></script>
+</body>
+</html>

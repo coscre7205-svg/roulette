@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>복불복 룰렛 - 2. 룰렛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+
+  <header class="hero compact">
+    <span class="mascot" aria-hidden="true">🎡</span>
+    <h1>오늘의 <em>복불복</em> 룰렛</h1>
+    <p>이름을 넣고 돌려요. 운명의 한 명은 누구일까요?</p>
+  </header>
+
+  <nav class="tabs" aria-label="페이지 이동">
+    <a class="tab" href="index.html" data-go="players"><span class="num">1</span><span>참가자</span><small><b id="tabCount">0</b>명</small></a>
+    <a class="tab active" href="roulette.html" data-go="roulette" aria-current="page"><span class="num">2</span><span>룰렛</span><small>돌리기</small></a>
+    <a class="tab" href="history.html" data-go="history"><span class="num">3</span><span>기록</span><small><b id="tabHist">0</b>번</small></a>
+  </nav>
+
+  <div class="grid">
+    <!-- 2페이지: 룰렛 -->
+    <section class="card wheel-card" aria-labelledby="t2">
+      <div class="card-head">
+        <div class="chip orange" aria-hidden="true">🎯</div>
+        <h2 id="t2">룰렛</h2>
+      </div>
+
+      <div class="wheel-wrap">
+        <div class="pointer" aria-hidden="true"></div>
+        <canvas id="wheel" width="880" height="880" role="img" aria-label="참가자 룰렛 판"></canvas>
+      </div>
+
+      <div class="ticker" id="ticker" aria-live="off">누가 뽑힐까요? 🤔</div>
+
+      <div class="actions">
+        <button class="btn btn-primary btn-big" id="spinBtn" type="button">뽑기!</button>
+        <p class="hint" id="hint">참가자를 2명 이상 추가해 주세요</p>
+        <button class="link-btn" id="soundBtn" type="button" aria-pressed="true">🔊 소리 켜짐</button>
+        <br>
+        <a class="link-btn" href="index.html" data-lock>← 참가자 수정하기</a>
+        <a class="link-btn" href="history.html" data-lock>기록 보기 →</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- 결과 -->
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="winnerName">
+  <div class="result">
+    <div class="crown" aria-hidden="true">🎉</div>
+    <p class="label">당첨! 오늘의 주인공은</p>
+    <div class="winner" id="winnerName"></div>
+    <p class="tail">축하해요! 🍀</p>
+    <div class="row">
+      <button class="btn btn-outline" id="againBtn" type="button">다시 뽑기</button>
+      <a class="btn btn-outline" href="history.html">기록 보기</a>
+      <button class="btn btn-outline" id="closeBtn" type="button">닫기</button>
+    </div>
+  </div>
+</div>
+<canvas id="confetti"></canvas>
+
+<script src="common.js"></script>
+<script src="roulette.js"></script>
+</body>
+</html>
